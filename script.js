@@ -1,62 +1,51 @@
-// alert(
-//   "Hola mi nombre es Luci, jugemos un juego!!! Me dirás 5 personas con distintas edades y adivinaré quien es el más grande, ¿Listo?"
-// );
+//El arreglo carrito se llenará con los objetos que valla comprando, una vez finalizada la compra se mostrará la cantidad total de frutas que compraste y el detalle de que tipo de fruta y cantidad compré iterándo cada objeto dentro del arreglo.
 
-// let arregloDePersonas = [];
+let carrito = [];
 
-// let arregloDeEdades = [];
+let condicion = true;
 
-// for (let j = 1; j <= 5; j++) {
-//   arregloDePersonas.push(prompt(`Escriba el nombre de la persona numero ${j}`));
-//   arregloDeEdades.push(
-//     prompt(`Cual es la edad de ${arregloDePersonas[j - 1]}`)
-//   );
-// }
+let cantidadDeProductos = 0;
 
-// let personas = [
-//   [arregloDePersonas[0], arregloDeEdades[0]],
-//   [arregloDePersonas[1], arregloDeEdades[1]],
-//   [arregloDePersonas[2], arregloDeEdades[2]],
-//   [arregloDePersonas[3], arregloDeEdades[3]],
-//   [arregloDePersonas[4], arregloDeEdades[4]],
-// ];
-
-// almacenNumero = personas[0][1];
-
-// let nombre;
-
-// for (let index = 0; index < personas.length; index++) {
-//   if (personas[index][1] > almacenNumero) {
-//     almacenNumero = personas[index][1];
-
-//     nombre = personas[index][0];
-//   }
-// }
-
-// alert(`La persona con más edad es ${nombre} con ${almacenNumero} años.`);
-
-let consulta = Number(
-  prompt(
-    "Bienvenido a nuestro banco, ¿Que desea hacer? Presione 1 para DEPÓSITO - Presione 2 para EXTRACCIÓN"
-  )
-);
-
-let billetera = 0;
-
-let depositar = (valorDepositar) => {
-  billetera += valorDepositar;
-
-  return alert(
-    `Usted ah depositado $${valorDepositar}, su saldo ahora es de $${billetera}. `
+while (condicion) {
+  let frutas = prompt(
+    "Bienvenido a la tienda de frutas, elija de la siguiente lista lo que desea comprar: - Bananas - Manzanas - Duraznos - Peras - Mandarinas - Uvas - Frutillas, si desea finalizar su compra o salir de la tienda digite salir "
   );
-};
 
-if (consulta === 1) {
-  let deposito = Number(prompt("Ingrese la cantidad que desea depositar"));
+  if (
+    frutas === "Bananas" ||
+    frutas === "Manzanas" ||
+    frutas === "Duraznos" ||
+    frutas === "Peras" ||
+    frutas === "Mandarinas" ||
+    frutas === "Uvas" ||
+    frutas === "Frutillas"
+  ) {
+    let cantidadDeFrutas = Number(
+      prompt(`Digite la cantidad de ${frutas} que desea llevar.`)
+    );
 
-  depositar(deposito);
-} else if (consulta === 2) {
-  console.log("Hola");
-} else {
-  console.log("Usted ingreso una opcion incorrecta, vuelva a comenzar.");
+    cantidadDeProductos += cantidadDeFrutas;
+
+    let compra = {
+      nombreFruta: frutas,
+
+      cantidad: cantidadDeFrutas,
+    };
+
+    carrito.push(compra);
+  } else if (frutas === "salir") {
+    condicion = false;
+  } else {
+    alert("Esa fruta no exista, vuelva a intentarlo.");
+  }
+}
+
+alert(`Usted realizó una compra por ${cantidadDeProductos} unidades`);
+
+alert("Gracias por su compra, a continuación detallaré su pedido.");
+
+for (let index = 0; index < carrito.length; index++) {
+  alert(
+    `Usted compro ${carrito[index].cantidad} ${carrito[index].nombreFruta} `
+  );
 }
