@@ -1,51 +1,86 @@
-//El arreglo carrito se llenará con los objetos que valla comprando, una vez finalizada la compra se mostrará la cantidad total de frutas que compraste y el detalle de que tipo de fruta y cantidad compré iterándo cada objeto dentro del arreglo.
+alert(
+  "Cuatro alumnos se sumaron a la institución este mes, ellos son: Luis Ventura, Angela Perez, Brian Gonzalez y Edgar Poul. Vamos a registrarlos en el sistema para que queden asentados en nuestra base de datos ordenada alfabéticamente. ¡Recuerda MEMORIZAR LOS NOMBRES y respetar MAYUSCULAS y minusculas!"
+);
 
-let carrito = [];
-
-let condicion = true;
-
-let cantidadDeProductos = 0;
-
-while (condicion) {
-  let frutas = prompt(
-    "Bienvenido a la tienda de frutas, elija de la siguiente lista lo que desea comprar: - Bananas - Manzanas - Duraznos - Peras - Mandarinas - Uvas - Frutillas, si desea finalizar su compra o salir de la tienda digite salir "
-  );
-
-  if (
-    frutas === "Bananas" ||
-    frutas === "Manzanas" ||
-    frutas === "Duraznos" ||
-    frutas === "Peras" ||
-    frutas === "Mandarinas" ||
-    frutas === "Uvas" ||
-    frutas === "Frutillas"
-  ) {
-    let cantidadDeFrutas = Number(
-      prompt(`Digite la cantidad de ${frutas} que desea llevar.`)
-    );
-
-    cantidadDeProductos += cantidadDeFrutas;
-
-    let compra = {
-      nombreFruta: frutas,
-
-      cantidad: cantidadDeFrutas,
-    };
-
-    carrito.push(compra);
-  } else if (frutas === "salir") {
-    condicion = false;
-  } else {
-    alert("Esa fruta no exista, vuelva a intentarlo.");
+class Persona {
+  constructor(nombreApellido) {
+    this.nombreApellido = nombreApellido;
+    this.id = Math.round(Math.random() * (100 - 1) + 1);
   }
 }
 
-alert(`Usted realizó una compra por ${cantidadDeProductos} unidades`);
+let personaUno;
+let personaDos;
+let personaTres;
+let personaCuatro;
 
-alert("Gracias por su compra, a continuación detallaré su pedido.");
+let arregloPersonas = [];
 
-for (let index = 0; index < carrito.length; index++) {
-  alert(
-    `Usted compro ${carrito[index].cantidad} ${carrito[index].nombreFruta} `
+let unoNombreApellido = prompt(
+  "Ingrese el nombre y apellido del primer alumno, pista: Su nombre empieza con Lu-- y su apellido con Vent---"
+);
+
+let dosNombreApellido = prompt(
+  "Ingrese el nombre y apellido del segundo alumno, pista: Su nombre empieza con Ang--- y su apellido con Per--"
+);
+
+let tresNombreApellido = prompt(
+  "Ingrese el nombre y apellido del tercer alumno, pista: Su nombre empieza con Bri-- y su apellido con Gonz----"
+);
+
+let cuatroNombreApellido = prompt(
+  "Ingrese el nombre y apellido del tercer alumno, pista: Su nombre empieza con Ed--- y su apellido con Po--"
+);
+
+if (unoNombreApellido === "Luis Ventura") {
+  personaUno = new Persona(unoNombreApellido);
+
+  arregloPersonas.push(
+    personaUno.nombreApellido + " ID: " + personaUno.id + " "
   );
+} else {
+  alert("El nombre o apellido son incorrectos, vuelva a intentarlo");
 }
+
+if (dosNombreApellido === "Angela Perez") {
+  personaDos = new Persona(dosNombreApellido);
+
+  arregloPersonas.push(
+    personaDos.nombreApellido + " ID: " + personaDos.id + " "
+  );
+} else {
+  alert("El nombre o apellido son incorrectos, vuelva a intentarlo");
+}
+
+if (tresNombreApellido === "Brian Gonzalez") {
+  personaTres = new Persona(tresNombreApellido);
+
+  arregloPersonas.push(
+    personaTres.nombreApellido + " ID: " + personaTres.id + " "
+  );
+} else {
+  alert("El nombre o apellido son incorrectos, vuelva a intentarlo");
+}
+
+if (cuatroNombreApellido === "Edgar Poul") {
+  personaCuatro = new Persona(cuatroNombreApellido);
+
+  arregloPersonas.push(
+    personaCuatro.nombreApellido + " ID: " + personaCuatro.id + " "
+  );
+} else {
+  alert("El nombre o apellido son incorrectos, vuelva a intentarlo");
+}
+
+alert(
+  "Excelente, hemos agregado a los nuevos alumnos: " +
+    arregloPersonas +
+    " ahora, vamos a ordenarlos por órden alfabético para que los profesores puedan pasar lista de forma ordenada. Lo haremos programando el algorítmo a travéz del método SORT(), dale ACEPTAR para ordenar los nombres de los alumnos alfabéticamente."
+);
+
+arregloPersonas.sort();
+
+alert(
+  arregloPersonas +
+    " Excelente, hemos ordenado alfabéticamente a los alumnos, ahora los profesores podrán pasar lista de forma ordenada.. ¡¡FELICITACIONES!!"
+);
