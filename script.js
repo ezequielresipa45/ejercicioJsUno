@@ -7,6 +7,14 @@ class Persona {
     this.nombreApellido = nombreApellido;
     this.id = Math.round(Math.random() * (100 - 1) + 1);
   }
+
+  // METODO FUNCION
+
+  saludoEdad(miEdad) {
+    alert(
+      `Hola soy ${this.nombreApellido} estoy muy feliz de a verme sumado a la institución, tengo ${miEdad} años`
+    );
+  }
 }
 
 let personaUno;
@@ -35,6 +43,8 @@ let cuatroNombreApellido = prompt(
 if (unoNombreApellido === "Luis Ventura") {
   personaUno = new Persona(unoNombreApellido);
 
+  personaUno.saludoEdad(28);
+
   arregloPersonas.push(
     personaUno.nombreApellido + " ID: " + personaUno.id + " "
   );
@@ -44,6 +54,7 @@ if (unoNombreApellido === "Luis Ventura") {
 
 if (dosNombreApellido === "Angela Perez") {
   personaDos = new Persona(dosNombreApellido);
+  personaDos.saludoEdad(36);
 
   arregloPersonas.push(
     personaDos.nombreApellido + " ID: " + personaDos.id + " "
@@ -54,6 +65,7 @@ if (dosNombreApellido === "Angela Perez") {
 
 if (tresNombreApellido === "Brian Gonzalez") {
   personaTres = new Persona(tresNombreApellido);
+  personaTres.saludoEdad(20);
 
   arregloPersonas.push(
     personaTres.nombreApellido + " ID: " + personaTres.id + " "
@@ -64,6 +76,7 @@ if (tresNombreApellido === "Brian Gonzalez") {
 
 if (cuatroNombreApellido === "Edgar Poul") {
   personaCuatro = new Persona(cuatroNombreApellido);
+  personaCuatro.saludoEdad(56);
 
   arregloPersonas.push(
     personaCuatro.nombreApellido + " ID: " + personaCuatro.id + " "
@@ -72,10 +85,14 @@ if (cuatroNombreApellido === "Edgar Poul") {
   alert("El nombre o apellido son incorrectos, vuelva a intentarlo");
 }
 
+// BUCLE - ITERADOR
+
+for (let i = 0; i < arregloPersonas.length; i++) {
+  alert(`Has agregado a ${arregloPersonas[i]}. `);
+}
+
 alert(
-  "Excelente, hemos agregado a los nuevos alumnos: " +
-    arregloPersonas +
-    " ahora, vamos a ordenarlos por órden alfabético para que los profesores puedan pasar lista de forma ordenada. Lo haremos programando el algorítmo a travéz del método SORT(), dale ACEPTAR para ordenar los nombres de los alumnos alfabéticamente."
+  " ahora, vamos a ordenarlos por órden alfabético para que los profesores puedan pasar lista de forma ordenada. Lo haremos programando el algorítmo a travéz del método SORT(), dale ACEPTAR para ordenar los nombres de los alumnos alfabéticamente."
 );
 
 arregloPersonas.sort();
